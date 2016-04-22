@@ -1,0 +1,38 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:	 EVE
+Version:	 1.0
+Assigned to:	 WebNik
+Primary use:	 EVE
+-------------------------------------------------------------------*/
+
+/* FONTS*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700|Droid+Serif:400italic|Lato|Roboto+Slab:700,100|Open+Sans:600,700);
+@import url('../fonts/font-awesome/css/font-awesome.min.css');
+@import url('../fonts/flaticon/flaticon.css');
+
+/* PLUGIN CSS */
+@import url('../plugins/bootstrap/css/bootstrap.css');
+@import url('../plugins/slider-pro/dist/css/slider-pro.css');
+@import url('../plugins/owl-carousel/owl.carousel.css');
+@import url('../plugins/owl-carousel/owl.transitions.css');
+@import url('../plugins/owl-carousel/owl.theme.css');
+@import url('../plugins/isotope/isotope.css');
+@import url('../plugins/prettyphoto/css/prettyPhoto.css');
+@import url('../plugins/yamm/yamm.css');
+@import url('../plugins/loader/css/loader.css');
+/*@import url('../plugins/animate/animate.css');*/
+/*@import url('../plugins/validation/validation-2.2.min.css');*/
+
+
+/* MAIN CSS */
+@import url('preloader.css');
+@import url('theme.css');
+@import url('sections.css');
+@import url('sidebar.css');
+@import url('responsive.css');
+/*@import url('blog.css');*/
+/*@import url('color.css');*/
+/*@import url('debugging.css');*/
+

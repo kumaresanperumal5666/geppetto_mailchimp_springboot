@@ -1,0 +1,111 @@
+/*------------------------------------------------------------------
+[Table of contents]
+
+- Global
+- Elements
+
+-------------------------------------------------------------------*/
+
+
+/*01 Global */
+
+.sidebar {
+	margin-top: 103px;
+	margin-left: 50px;
+}
+.widget {
+	margin-bottom: 53px;
+}
+.widget-title {
+	margin-top: 0;
+	margin-bottom: 29px;
+	font: 700 14px Montserrat;
+	color: #333;
+	text-transform: uppercase;
+}
+
+.widget .border-bottom {
+	margin-top: 32px;
+}
+
+
+/* Elements */
+
+
+.post-widget__link {
+	display: block;
+	margin-bottom: 30px;
+	transition: all 0.3s;
+}
+.post-widget__link:hover {
+	text-decoration: none;
+}
+.post-widget__media {
+	float: left;
+}
+.post-widget__inner {
+	margin-left: 140px;;
+}
+.post-widget__title {
+	font: 400 11px Montserrat;
+	color: #333;
+	text-transform: uppercase;
+}
+.post-widget__date {
+	margin-top: 13px;
+	font: 11px 'Droid Serif';
+	color: #999;
+}
+.post-widget__date .icon {
+	margin-right: 8px;
+	font-size: 15px;
+	vertical-align: text-bottom;
+}
+
+.list-widget {
+	margin-top: -5px;
+	margin-bottom: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+.list-widget__item {
+	margin-bottom: 14px;
+	margin-left: 4px;
+}
+.list-widget__item:last-child {
+	margin-bottom: 0;
+}
+.list-widget__item:before {
+	padding-right: 10px;
+	font: normal normal normal 14px/1 FontAwesome;
+	content: '\f0da';
+	transition: all 0.3s;
+}
+.list-widget__link {
+	font-family: Montserrat;
+	color: #333;
+	text-transform: uppercase;
+}
+.list-widget__link:hover {
+	text-decoration: none;
+}
+
+.list-tags {
+	padding-left: 0;
+	list-style-type: none;
+}
+.list-tags__item {
+	display: inline-block;
+	margin-right: 3px;
+	margin-bottom: 6px;
+}
+
+.gallery-widget__item {
+	max-width: 120px;
+	margin-bottom: 10px;
+	padding-right: 9px;
+}
+.gallery-widget__link {
+	display: block;
+	transition: all 0.3s;
+}

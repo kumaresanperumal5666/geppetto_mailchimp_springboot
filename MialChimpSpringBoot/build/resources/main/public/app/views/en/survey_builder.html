@@ -1,0 +1,170 @@
+<header class="header" data-ng-include="'app/views/header.html'"></header>
+<div class="survey">
+  <div class="add-question">
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_question_modal">Add Question</button>
+  </div>
+  <h3>{{survey.survey_name}}</h3>
+  <ul class="questions">
+    <li data-ng-repeat="q in questions" id="question_{{q.id}}" control>
+
+      <!-- Edit -->
+      <form class="edit hidden">
+        <!-- Question Type -->
+        <div class="form-group">
+          <label>Question Type:</label>
+          <span>{{q.display_type}}</span>
+        </div>
+        <!-- Title -->
+        <div class="form-group">
+          <label>
+            <span>Title:</span>
+            <input type="text" data-ng-model="q.the_question">
+          </label>
+        </div>
+        <!-- Multiple Choice (Only One Answer) -->
+        <div class="form-group radio-buttons" data-ng-class="q.display_type !== 'OPTION_LABEL' ? 'hidden' : ''">
+          <ul class="list-group">
+            <li data-ng-repeat="o in q.options" class="list-group-item radio">
+              <label>
+                <input type="radio" disabled>
+                <input type="text" data-ng-model="o.answer">
+              </label>
+              <!--<button class="btn btn-danger btn-remove" data-ng-click="removeRadioAnswer(q.id, a.id)">-->
+                <!--<i class="fa fa-remove"></i>-->
+              <!--</button>-->
+            </li>
+          </ul>
+          <!--<button class="btn btn-info" data-ng-click="addRadioAnswer(q.id)">Add Answer</button>-->
+        </div>
+        <!-- Add Picture  -->
+        <!--<div class="form-group add-picture" data-ng-class="q.display_type !== 'IMAGE_OPTIONS' ? 'hidden' : ''">-->
+          <!--<ul class="list-group">-->
+            <!--<li class="list-group-item" data-ng-repeat="i in q.options" id="items_{{i.id}}">-->
+              <!--<input type="file" accept="image/*" onchange="angular.element(this).scope().uploadFile(this)">-->
+
+              <!--<input type="file" accept="image/*" name="file" data-ng-value="fileToUpload" value="{{fileToUpload}}"-->
+                     <!--file-model="fileToUpload" set-file-data="fileToUpload = value;" id="my_file" />-->
+              <!--<button class="btn btn-danger btn-remove" data-ng-click="removePictureItem(q.id, i.id)">-->
+                <!--<i class="fa fa-remove"></i>-->
+              <!--</button>-->
+            <!--</li>-->
+          <!--</ul>-->
+          <!--<button class="btn btn-info" data-ng-click="addPictureItem(q.id)">Add Picture</button>-->
+        <!--</div>-->
+        <div class="form-group add-picture" data-ng-class="q.display_type !== 'IMAGE_OPTIONS' ? 'hidden' : ''">
+          <p>{{q.the_question}}</p>
+          <ul class="list-group">
+            <li class="list-group-item" data-ng-repeat="o in q.options">
+              <img data-ng-src="{{o.answer}}" alt="{{o.id}}">
+            </li>
+          </ul>
+        </div>
+        <!-- Range Slider -->
+        <div class="form-group" data-ng-class="q.display_type !== 'SLIDER' ? 'hidden' : ''">
+          <div class="form-group">
+            <label>
+              <span>Min Value</span>
+              <input type="number">
+            </label>
+          </div>
+          <div class="form-group">
+            <label>
+              <span>Max Value</span>
+              <input type="number">
+            </label>
+          </div>
+        </div>
+        <!-- Save -->
+        <div class="form-group">
+          <button data-ng-click="saveQuestion(q.id)" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+
+      <!-- Preview -->
+      <form class="preview">
+        <!-- Single Textbox -->
+        <div class="form-group single_textbox" data-ng-class="q.display_type !== 'PLAIN_TEXT' ? 'hidden' : ''">
+          <label>
+            <span>{{q.the_question}}</span>
+            <input type="text" class="form-control">
+          </label>
+        </div>
+        <!-- Multiple Choice (Only One Answer) -->
+        <div class="form-group radio_buttons" data-ng-class="q.display_type !== 'OPTION_LABEL' ? 'hidden' : ''">
+          <p>{{q.the_question}}</p>
+          <ul class="list-group">
+            <li class="list-group-item radio" data-ng-repeat="a in q.options">
+              <label>
+                <input type="radio" name="{{a.id}}" value="{{a.id}}">
+                <span>{{a.answer}}</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+        <!-- Take Photo -->
+        <div class="form-group" data-ng-class="q.display_type !== 'CAMERA' ? 'hidden' : ''">
+          <p>{{q.the_question}}</p>
+          <button class="btn btn-info">
+            <i class="fa fasa-camera"></i>
+            <span>Take Photo</span>
+          </button>
+        </div>
+        <!-- Add Picture -->
+        <div class="form-group add-picture" data-ng-class="q.display_type !== 'IMAGE_OPTIONS' ? 'hidden' : ''">
+          <p>{{q.the_question}}</p>
+          <ul class="list-group">
+            <li class="list-group-item" data-ng-repeat="o in q.options">
+              <img data-ng-src="{{o.answer}}" alt="{{o.id}}">
+            </li>
+          </ul>
+        </div>
+        <!-- Range Slider -->
+        <div class="form-group range-slider" data-ng-class="q.display_type !== 'SLIDER' ? 'hidden' : ''">
+          <p>{{q.the_question}}</p>
+          <rzslider rz-slider-model="20" rz-slider-options="getOptionsForSlider(q.options)"></rzslider>
+        </div>
+      </form>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button title="Edit" class="btn btn-warning" data-ng-click="editQuestion(q.id)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <!--<button title="Delete" class="btn btn-danger" data-ng-click="deleteQuestion(q.id)">-->
+          <!--<i class="fa fa-remove"></i>-->
+        <!--</button>-->
+      </div>
+
+    </li>
+  </ul>
+</div>
+<div class="modal fade" id="add_question_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h6>
+          <label for="new_question_type" class="modal-title">Choose Question Type</label>
+        </h6>
+      </div>
+      <div class="modal-body">
+        <form>
+          <select class="form-control" id="new_question_type"
+                  data-ng-model="new_question_type"
+                  data-ng-options="type.name for type in question_types track by type.id"
+                  data-ng-change="chooseType()">
+            <option value="" disabled>Choose an option</option>
+            <option value="6" label="Default Image List">Default Image List</option>
+          </select>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" data-ng-click="addQuestion()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer wow" data-wow-duration="2s" data-ng-include="'app/views/footer.html'"></footer>

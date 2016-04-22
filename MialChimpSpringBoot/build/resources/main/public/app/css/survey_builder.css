@@ -1,0 +1,142 @@
+.surveys,
+.survey {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  width: 1170px;
+}
+
+.surveys .create-survey,
+.survey .add-question {
+  align-self: flex-end;
+  display: flex;
+  margin: 10px 0;
+}
+
+.surveys .create-survey button,
+.survey .add-question button {
+  outline: none;
+}
+
+.surveys ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.surveys ul li {
+  align-items: center;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+.surveys ul li h2 a {
+  color: #00AEEF;
+}
+
+.modal .modal-body input {
+  border-radius: 5px;
+  font-family: sans-serif;
+  height: 35px;
+  padding: 0 10px;
+}
+
+.modal .modal-body select {
+  font-family: sans-serif;
+  height: 35px;
+}
+
+.modal .modal-body input:focus {
+  box-shadow: none;
+}
+
+.modal .modal-body textarea {
+  border-radius: 5px;
+  font-family: sans-serif;
+  padding: 10px;
+}
+
+.modal .modal-body textarea:focus {
+  box-shadow: none;
+}
+
+/* === Survey ==== */
+
+.survey h3 {
+  margin: 20px 40px;
+}
+
+.survey .questions {
+  list-style: none;
+  margin: 0 0 100px 0;
+}
+
+.survey .questions li {
+  position: relative;
+  margin: 10px 0;
+}
+
+.survey .questions form {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.survey .questions li .preview input[type="text"] {
+  height: 35px;
+  width: 300px;
+  padding: 5px 10px;
+}
+
+.survey .questions li .preview input[type="text"]:focus {
+  box-shadow: none;
+}
+
+.survey .actions {
+  margin: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.survey .actions .btn {
+  padding: 5px 7px;
+}
+
+.survey .radio-buttons ul {
+  width: 90%;
+}
+
+.survey .radio-buttons li {
+  position: relative;
+}
+
+.survey .radio-buttons .btn-remove,
+.survey .add-picture .btn-remove {
+  margin: 7px;
+  padding: 5px 7px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.preview .add-picture img {
+  max-width: 100%;
+}
+
+/* Customizing Range Slider */
+
+rzslider {
+  margin: 50px 0 20px;
+}
+
+rzslider .rz-pointer {
+  outline: none;
+}
+
+rzslider .rz-pointer.rz-active:after {
+  background-color: #fff;
+}

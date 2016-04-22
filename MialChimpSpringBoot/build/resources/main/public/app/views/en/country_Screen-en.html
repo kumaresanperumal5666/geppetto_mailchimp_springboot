@@ -1,0 +1,82 @@
+<header class="header" data-ng-include="'app/views/header.html'"></header>
+<div class="surveys">
+  <div class="create-survey">
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#create_country_modal" ng-click="setCountry()" disabled>Create Country</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Capital</th>
+        <th>Currency</th>
+        <th>Telephone Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr data-ng-repeat="s in allCountry | orderBy:'common_name'">
+        <th><a data-toggle="modal" ng-click="setCountry(s)">{{s.common_name}} ({{s.iso_three_letter_code}})</a></th>
+        <th>{{s.capital}}</th>
+        <th>{{s.currency_name}}</th>
+        <th>{{s.telephone_code}}</th>
+      </tr>
+    </tbody>
+  </table>
+  <!--
+  <ul>
+    <li data-ng-repeat="s in allCountry | orderBy:'common_name'">
+      <h2>
+        <a data-toggle="modal" ng-click="setCountry(s)">{{s.common_name}} ({{s.iso_three_letter_code}})</a>
+      </h2>
+      <p>Capital: {{s.capital}}</p>
+      <p>Currency: {{s.currency_name}}</p>
+	  <p>Telephone Code: {{s.telephone_code}}</p>
+    </li>
+  </ul>
+  -->
+</div>
+<div class="modal fade" id="create_country_modal" tabindex="-1" role="dialog" aria-labelledby="modal_title">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modal_title" ng-hide="Country.id">Create Country</h4>
+        <h4 class="modal-title" id="modal_title" ng-show="Country.id">Update Country</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="common_name">Common Name: </label>
+            <input type="text" class="form-control" id="common_name" data-ng-model="Country.common_name">
+          </div>
+          <div class="form-group">
+            <label for="formal_name">Formal Name: </label>
+            <input type="text" class="form-control" id="formal_name" data-ng-model="Country.formal_name">
+          </div>
+          <div class="form-group">
+            <label for="new_country_name">ISO three letter code: </label>
+            <input type="text" class="form-control" id="iso_three_letter_code" data-ng-model="Country.iso_three_letter_code">
+          </div>
+          <div class="form-group">
+            <label for="capital">Capital: </label>
+            <input type="text" class="form-control" id="capital" data-ng-model="Country.capital">
+          </div>
+          <div class="form-group">
+            <label for="currency_name">Currency Name: </label>
+            <input type="text" class="form-control" id="currency_name" data-ng-model="Country.currency_name">
+          </div>
+          <div class="form-group">
+            <label for="telephone_code">Telephone Code: </label>
+            <input type="text" class="form-control" id="telephone_code" data-ng-model="Country.telephone_code">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-ng-click="closeModal()">Close</button>
+        <button type="button" class="btn btn-primary" data-ng-click="create()" ng-hide="Country.id">Create</button>
+        <button type="button" class="btn btn-primary" data-ng-click="update()" ng-show="Country.id">Update</button>
+        <button type="button" class="btn btn-primary" data-ng-click="delete()" ng-show="Country.id">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer wow" data-wow-duration="2s" data-ng-include="'app/views/footer.html'"></footer>

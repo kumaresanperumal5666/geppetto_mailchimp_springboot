@@ -1,0 +1,44 @@
+<header class="header" data-ng-include="'app/views/header.html'"></header>
+<div class="surveys">
+  <div class="create-survey">
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#create_client_modal" ng-click="setClient()">Create Client</button>
+  </div>
+  <ul>
+    <li data-ng-repeat="s in allclient  | orderBy:'client_name'">
+      <h2>
+        <a data-toggle="modal" data-target="#create_client_modal" ng-click="setClient(s)">{{s.client_name}}</a>
+      </h2>
+		{{s.notes}}
+    </li>
+  </ul>
+</div>
+<div class="modal fade" id="create_client_modal" tabindex="-1" role="dialog" aria-labelledby="modal_title">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modal_title" ng-hide="Client.id">Create Client</h4>
+        <h4 class="modal-title" id="modal_title" ng-show="Client.id">Update Client</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="new_survey_name">Client Name: </label>
+            <input type="text" class="form-control" id="new_survey_name" data-ng-model="Client.client_name">
+          </div>
+          <div class="form-group">
+            <label for="notes">Notes: </label>
+            <textarea data-ck-editor data-ng-model="Client.notes" id="notes"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-ng-click="closeModal()">Close</button>
+        <button type="button" class="btn btn-primary" data-ng-click="create()" ng-hide="Client.id">Create</button>
+        <button type="button" class="btn btn-primary" data-ng-click="update()" ng-show="Client.id">Update</button>
+        <button type="button" class="btn btn-primary" data-ng-click="delete()" ng-show="Client.id">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer wow" data-wow-duration="2s" data-ng-include="'app/views/footer.html'"></footer>

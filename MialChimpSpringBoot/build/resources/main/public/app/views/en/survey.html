@@ -1,0 +1,65 @@
+<header class="header" data-ng-include="'app/views/header.html'"></header>
+<div class="surveys">
+  <div class="create-survey">
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#create_survey_modal">Create Survey
+    </button>
+  </div>
+  <ul>
+    <li data-ng-repeat="s in surveys">
+      <h2>
+        <a href="#/surveys/{{s.id}}">{{s.survey_name}}</a>
+      </h2>
+      <mark>{{s.client_name}}</mark>
+      <p>{{s.survey_description}}</p>
+    </li>
+  </ul>
+</div>
+<div class="modal fade" id="create_survey_modal" tabindex="-1" role="dialog" aria-labelledby="modal_title">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="modal_title">Create Modal</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="new_survey_name">Name: </label>
+            <input type="text" class="form-control" id="new_survey_name" data-ng-model="new_survey_name">
+          </div>
+          <div class="form-group">
+            <label for="new_survey_country">Country: </label>
+            <select class="form-control" id="new_survey_country" data-ng-model="new_survey_country">
+              <option data-ng-repeat="country in countries" value="{{country.id}}">{{country.common_name}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="new_survey_company">Company: </label>
+            <select class="form-control" id="new_survey_company" data-ng-model="new_survey_company"
+                    data-ng-change="getProductsByCompany()">
+              <option data-ng-repeat="client in clients" value="{{client.id}}">{{client.client_name}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="new_survey_product">Product: </label>
+            <select class="form-control" id="new_survey_product" data-ng-model="new_survey_product">
+              <option data-ng-repeat="product in products" value="{{product.id}}">{{product.product_name}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="new_survey_description">Description: </label>
+            <textarea id="new_survey_description" class="form-control"
+                      data-ng-model="new_survey_description"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-ng-click="createSurvey()">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer wow" data-wow-duration="2s" data-ng-include="'app/views/footer.html'"></footer>

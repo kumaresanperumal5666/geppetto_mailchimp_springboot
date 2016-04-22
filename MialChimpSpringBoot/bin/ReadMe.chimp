@@ -1,0 +1,25 @@
+
+#Written by  Kumaresan Perumal
+#Date : 4/22/2016
+
+#NOTE:
+#=======
+
+#When we create a campaign. we need mailchimp API key and LIST Id to send mails to the subscribers
+
+#Geppetto Mailchimp Account Given by Daniel Castillos:
+#-----------------------------------------------------
+#Domain Name : mailchimp.com
+#Username    : geppetto.t@mail.com
+#Password    : Tang$3456
+
+#1. This is for mailchimp API key. you go to above mailchimp account and get the api key.
+#	the way is :  profile->extras->..
+#	API Key :  42c01e7db6bce291d476d62cb1ae0cae-us11 
+
+
+#2. This is exampls list id. you go to above mailchimp account and get the list id.
+#  List id : 6e59b57d14  
+
+#3. Project link: 
+    http://localhost:8080/MialChimp/
